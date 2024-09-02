@@ -8,8 +8,12 @@
 </head>
 <body>
     <header>
-        <div class="logo">LOGO</div>
-        <div class="carrito">Mi Carrito</div>
+        <div class="logo">
+            <img src="imagenes/LogoBicicleta.jpg" alt="Logo de la página">
+        </div>
+        <div class="carrito">
+            <img src="imagenes/carritoCompra.jpg" alt="Carrito Compras">
+        </div>
         <div class="user-actions">
             <button id="subscribeBtn">SUBSCRIBIRME</button>
             <button id="loginBtn">INICIAR SESION</button>
@@ -23,18 +27,29 @@
     </nav>
     <main>
         <section class="destacado">
-            <h2>PRODUCTO DESTACADO DEL MES</h2>
-            
+            <img id="productoDestacado" src="imagenes/BiciDestacada.jpg" alt="Producto Destacado">
         </section>
         <section class="categorias">
             <div class="categoria mtb">
-                <h3>MTB</h3>
+                <img id="productoDestacado" src="imagenes/mtb.png" alt="mtb">
             </div>
             <div class="categoria ruta">
-                <h3>RUTA</h3>
+                <img id="productoDestacado" src="imagenes/ruta.png" alt="ruta">
             </div>
         </section>
     </main>
+
+
+    <!-- Cuadro de texto para ingresar características -->
+<div id="cuadroTexto" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarCuadroTexto()">&times;</span>
+        <h2>Características del Producto</h2>
+        <textarea id="caracteristicas" rows="4" cols="50" placeholder="Ingresa las características aquí..."></textarea>
+        <button onclick="guardarCaracteristicas()">Guardar</button>
+    </div>
+</div>
+
 
     <!-- Formulario de inicio de sesión -->
     <div id="loginModal" class="modal">
