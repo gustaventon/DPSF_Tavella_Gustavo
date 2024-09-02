@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Bicicletas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <div class="carrito">Mi Carrito</div>
+        <div class="user-actions">
+            <button id="subscribeBtn">SUBSCRIBIRME</button>
+            <button id="loginBtn">INICIAR SESION</button>
+        </div>
+    </header>
+    <nav>
+        <a href="#">ACCESORIOS</a>
+        <a href="#">BICIS POR ESTILO</a>
+        <a href="#">INDUMENTARIA</a>
+        <a href="#">TALLER</a>
+    </nav>
+    <main>
+        <section class="destacado">
+            <h2>PRODUCTO DESTACADO DEL MES</h2>
+            
+        </section>
+        <section class="categorias">
+            <div class="categoria mtb">
+                <h3>MTB</h3>
+            </div>
+            <div class="categoria ruta">
+                <h3>RUTA</h3>
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulario de inicio de sesión -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Carrito de compras -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="cartItems">
+                <!-- Los productos se añadirán aquí -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
