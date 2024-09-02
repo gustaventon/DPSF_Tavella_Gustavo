@@ -16,14 +16,26 @@ header {
     background-color: #ff5733;
 }
 
-.logo img, .carrito img {
-    width: 100px; 
+.logo img {
+    width: 200px; 
+    height: auto; 
+}
+
+.carrito img {
+    width: 50px; 
     height: auto; 
 }
 
 .user-actions button {
     margin-left: 0.5rem;
     border-radius: 5px;
+    padding: 15px 30px; /* Aumenta el tamaño del botón */
+    font-size: 16px; /* Aumenta el tamaño del texto dentro del botón */
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    margin-bottom: 10px;
 }
 
 nav {
@@ -58,15 +70,16 @@ main {
 
 .categorias {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Espacio uniforme entre las imágenes */
+    background-color: #ff5733;
+    padding: 20px;
 }
 
-.categoria {
-    background-color: #ff5733;
-    flex: 1;
-    margin-right: 1rem;
-    text-align: center;
-    padding: 2rem;
+.categoria img {
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    
 }
 
 .categoria:last-child {
@@ -130,4 +143,50 @@ main {
 
 #cartItems li {
     margin: 10px 0;
+}
+
+/* css del login */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    display: flex; /* Usar flexbox para alinear los elementos */
+    flex-direction: column; /* Alinear los elementos en columna */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Aumenta el ancho máximo */
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.modal-content input {
+    margin-bottom: 15px; /* Espacio entre los campos de entrada */
+    padding: 10px; /* Espaciado interno para los campos de entrada */
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 15px;
+}
+
+.modal-content button {
+    padding: 10px; /* Espaciado interno para el botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #ff5733; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    margin-top: 10px;
+}
+
+.modal-content button:hover {
+    background-color: #e04e2f; /* Color de fondo del botón al pasar el mouse */
 }
