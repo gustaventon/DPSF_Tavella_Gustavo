@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de Bicicletas</title>
+    <title>Página de Bicicletas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,19 +11,17 @@
         <div class="logo">
             <img src="imagenes/LogoBicicleta.jpg" alt="Logo de la página">
         </div>
-        <div class="carrito">
+        <div class="carrito" id="cartBtn">
             <img src="imagenes/carritoCompra.jpg" alt="Carrito Compras">
         </div>
         <div class="user-actions">
-            <button id="subscribeBtn">SUBSCRIBIRME</button>
-            <button id="loginBtn">INICIAR SESION</button>
+            <button id="loginBtn">INICIAR SESIÓN</button>
         </div>
     </header>
     <nav>
-        <a href="#">ACCESORIOS</a>
-        <a href="#">BICIS POR ESTILO</a>
-        <a href="#">INDUMENTARIA</a>
-        <a href="#">TALLER</a>
+        <a href="#" id="accesoriosBtn">ACCESORIOS</a>
+        <a href="#" id="indumentariaBtn">INDUMENTARIA</a>
+        <a href="#" id="tallerBtn">TALLER</a>
     </nav>
     <main>
         <section class="destacado">
@@ -31,68 +29,45 @@
         </section>
         <section class="categorias">
             <div class="categoria mtb">
-                <img id="productoDestacado" src="imagenes/mtb.png" alt="mtb">
+                <img src="imagenes/mtb.png" alt="mtb">
             </div>
             <div class="categoria ruta">
-                <img id="productoDestacado" src="imagenes/ruta.png" alt="ruta">
+                <img src="imagenes/ruta.png" alt="ruta">
             </div>
         </section>
     </main>
 
-
-    <!-- Cuadro de texto para ingresar características -->
-<div id="cuadroTexto" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="cerrarCuadroTexto()">&times;</span>
-        <h2>Características del Producto</h2>
-        <textarea id="caracteristicas" rows="4" cols="50" placeholder="Ingresa las características aquí..."></textarea>
-        <button onclick="guardarCaracteristicas()">Guardar</button>
-    </div>
-</div>
-
-
-    <!-- Formulario de inicio de sesión -->
-    <div id="loginModal" class="modal">
+    <!-- Modal para añadir productos -->
+    <div id="modalProducto" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Iniciar Sesión</h2>
-            <form id="loginForm">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Entrar</button>
-            </form>
+            <span class="close" onclick="cerrarModal('modalProducto')">&times;</span>
+            <h2>Detalles del Producto</h2>
+            <label for="name">Nombre del producto:</label>
+            <input type="text" id="name">
+            <label for="description">Descripción:</label>
+            <textarea id="description"></textarea>
+            <label for="image">URL de Imagen:</label>
+            <input type="text" id="image">
+            <label for="category">Categoría:</label>
+            <input type="text" id="category">
+            <label for="colors">Colores/Talles:</label>
+            <input type="text" id="colors">
+            <label for="price">Precio:</label>
+            <input type="number" id="price">
+            <button onclick="agregarProducto()">Agregar al carrito</button>
         </div>
     </div>
 
     <!-- Carrito de compras -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="cerrarModal('cartModal')">&times;</span>
             <h2>Carrito de Compras</h2>
             <ul id="cartItems">
                 <!-- Los productos se añadirán aquí -->
             </ul>
         </div>
     </div>
-
-    <!-- Formulario de inicio de sesión -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Iniciar Sesión</h2>
-        <form id="loginForm">
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Entrar</button>
-        </form>
-    </div>
-</div>
-
-
 
     <script src="app.js"></script>
 </body>
