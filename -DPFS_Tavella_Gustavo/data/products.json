@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Cesta de bicicleta",
+        "description": "Cesta de acero para bicicleta.",
+        "image": "imagenes/cesta.jpg",
+        "category": "ACCESORIOS",
+        "colors": "Negro, Rojo, Azul",
+        "price": 25.50
+    },
+    {
+        "id": 2,
+        "name": "Camiseta para ciclistas",
+        "description": "Camiseta transpirable y ligera.",
+        "image": "imagenes/camiseta.jpg",
+        "category": "INDUMENTARIA",
+        "colors": "Verde, Negro, Blanco",
+        "price": 35.00
+    },
+    {
+        "id": 3,
+        "name": "Servicio de reparación",
+        "description": "Reparación completa de bicicletas.",
+        "image": "imagenes/reparacion.jpg",
+        "category": "TALLER",
+        "colors": "",
+        "price": 50.00
+    }
+]

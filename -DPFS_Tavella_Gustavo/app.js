@@ -24,17 +24,6 @@ document.getElementById("cartBtn").onclick = function() {
     abrirModal("cartModal");
 }
 
-// Abrir modales para cada categoría
-document.getElementById("accesoriosBtn").onclick = function() {
-    abrirModal("modalProducto");
-};
-document.getElementById("indumentariaBtn").onclick = function() {
-    abrirModal("modalProducto");
-};
-document.getElementById("tallerBtn").onclick = function() {
-    abrirModal("modalProducto");
-};
-
 // Función para agregar producto al carrito
 function agregarProducto() {
     const name = document.getElementById("name").value;
@@ -63,16 +52,46 @@ window.onclick = function(event) {
 };
 
 // Validar el formulario de inicio de sesión
-document.getElementById("loginForm").onsubmit = function(event) {
+document.getElementById("loginForm").onsubmit = async function(event) {
     event.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    if (username === "gustavo" && password === "lalo") {
-        alert("Inicio de sesión exitoso");
-        cerrarModal('loginModal');
-    } else {
-        alert("Usuario o contraseña incorrectos");
+    // Aquí se debe utilizar await dentro de una función async
+    try {
+        const response = await fetch('data/users.json');
+        const users = await response.json();
+
+        const user = users.find(user => user.email === username && user.password === password);
+
+        if (user) {
+            alert("Inicio de sesión exitoso");
+            cerrarModal('loginModal');
+        } else {
+            alert("Corrobora tu correo o contraseña");
+        }
+    } catch (error) {
+        console.error("Error al cargar los usuarios:", error);
+        alert("Ocurrió un error al intentar iniciar sesión. Inténtalo de nuevo más tarde.");
     }
 }
+
+// Función para cargar datos de productos y usuarios (opcional)
+async function cargarDatos() {
+    try {
+        const responseProducts = await fetch('data/products.json');
+        const products = await responseProducts.json();
+
+        const responseUsers = await fetch('data/users.json');
+        const users = await responseUsers.json();
+
+        console.log(products); // Puedes usar estos datos en tu aplicación
+        console.log(users); // Igualmente para los usuarios
+    } catch (error) {
+        console.error("Error al cargar los datos:", error);
+    }
+}
+
+// Llamar a la función para cargar datos
+cargarDatos();
