@@ -225,3 +225,35 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+
+.productos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.producto {
+    width: 200px;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.producto h3 {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.producto p {
+    font-size: 0.9rem;
+    color: #555;
+}

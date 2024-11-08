@@ -1,7 +1,7 @@
 // Obtener elementos del DOM
 const loginBtn = document.getElementById("loginBtn");
 const loginModal = document.getElementById("loginModal");
-const closeLoginModal = document.querySelector("#loginModal .close");
+const cartBtn = document.getElementById("cartBtn");
 const cartModal = document.getElementById("cartModal");
 const cartItems = document.getElementById("cartItems");
 
@@ -20,7 +20,7 @@ loginBtn.onclick = function() {
 }
 
 // Abrir modal de carrito
-document.getElementById("cartBtn").onclick = function() {
+cartBtn.onclick = function() {
     abrirModal("cartModal");
 }
 
@@ -58,7 +58,6 @@ document.getElementById("loginForm").onsubmit = async function(event) {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    // Aquí se debe utilizar await dentro de una función async
     try {
         const response = await fetch('data/users.json');
         const users = await response.json();
@@ -75,23 +74,54 @@ document.getElementById("loginForm").onsubmit = async function(event) {
         console.error("Error al cargar los usuarios:", error);
         alert("Ocurrió un error al intentar iniciar sesión. Inténtalo de nuevo más tarde.");
     }
-}
+};
 
-// Función para cargar datos de productos y usuarios (opcional)
-async function cargarDatos() {
+// Obtener elementos del DOM para las categorías
+const accesoriosBtn = document.getElementById("accesoriosBtn");
+const indumentariaBtn = document.getElementById("indumentariaBtn");
+const tallerBtn = document.getElementById("tallerBtn");
+const mainSection = document.querySelector("main");
+
+// Función para mostrar productos filtrados por categoría
+async function mostrarProductos(categoria) {
     try {
-        const responseProducts = await fetch('data/products.json');
-        const products = await responseProducts.json();
+        const response = await fetch('data/products.json');
+        const products = await response.json();
 
-        const responseUsers = await fetch('data/users.json');
-        const users = await responseUsers.json();
+        // Filtrar productos según la categoría
+        const productosFiltrados = products.filter(producto => producto.category === categoria);
 
-        console.log(products); // Puedes usar estos datos en tu aplicación
-        console.log(users); // Igualmente para los usuarios
+        // Limpiar el contenido actual de la sección principal
+        mainSection.innerHTML = '<section class="destacado"><img id="productoDestacado" src="imagenes/BiciDestacada.jpg" alt="Producto Destacado"></section>';
+
+        // Crear un contenedor para los productos
+        const productosContainer = document.createElement("div");
+        productosContainer.classList.add("productos-container");
+
+        // Agregar cada producto filtrado al contenedor
+        productosFiltrados.forEach(producto => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("producto");
+
+            productDiv.innerHTML = `
+                <img src="${producto.image}" alt="${producto.name}" style="width: 150px;">
+                <h3>${producto.name}</h3>
+                <p>${producto.description}</p>
+                <p>Colores: ${producto.colors}</p>
+                <p>Precio: $${producto.price.toFixed(2)}</p>
+            `;
+
+            productosContainer.appendChild(productDiv);
+        });
+
+        // Agregar el contenedor de productos a la sección principal
+        mainSection.appendChild(productosContainer);
     } catch (error) {
-        console.error("Error al cargar los datos:", error);
+        console.error("Error al cargar los productos:", error);
     }
 }
 
-// Llamar a la función para cargar datos
-cargarDatos();
+// Asignar eventos de clic a cada botón de categoría
+accesoriosBtn.addEventListener("click", () => mostrarProductos("ACCESORIOS"));
+indumentariaBtn.addEventListener("click", () => mostrarProductos("INDUMENTARIA"));
+tallerBtn.addEventListener("click", () => mostrarProductos("TALLER"));
